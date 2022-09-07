@@ -79,6 +79,10 @@ flutter:
       - assets/images/formulacao.png
       - assets/images/lmrs.png
       - assets/images/lmr.png
+      - assets/images/BR.png
+      - assets/images/UE.png
+      - assets/images/RU.png
+      - assets/images/EUA.png
 
       - assets/images/vermelho.png
       - assets/images/amarelo.png

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mangavasf/telacomparativo.dart';
 
 import 'main.dart';
 
@@ -98,15 +99,19 @@ class LMRSPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 210,
-                    height: 80,
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Comparativo LMRs',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () => Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => TelaComparativo())),
+                    child: Container(
+                      width: 210,
+                      height: 80,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Comparativo LMRs',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
