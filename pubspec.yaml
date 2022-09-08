@@ -29,10 +29,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+
+
   
   #Database Storage
-  sqflite: ^2.0.3+1
-  path_provider: ^2.0.11 #É um plugin Flutter para encontrar locais comumente usados no sistema de arquivos
+  sqflite: ^2.0.3+1 #Fornece as classes e funções que permitem interagir com o SQLite
+  path_provider: ^2.0.11 #Fornece funções que permitem definir a localização para 
+                          #armazenar o banco de dados em disco
 
   #Format DateTime
   intl: ^0.17.0
@@ -42,6 +46,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.17.4 #Para utilização de svg no app
   navigation_drawer_menu: ^1.0.0-beta
+  flutter_spinkit: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +73,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
       - assets/images/mangovasficon.png
+      - assets/images/mangaLoading.png
       - assets/images/produtos_formulados.png
       - assets/images/ingredientes_ativos.png
       - assets/images/pragas.png

@@ -8,15 +8,20 @@ class ClassificacaoToxicologicaPage extends StatefulWidget {
 }
 
 class _ModoDeAcaoPageState extends State<ClassificacaoToxicologicaPage> {
-  String dropdownvalue = '1 - Extremamente Tóxico';
-  var items = [
+  final List<String> items = [
     '1 - Extremamente Tóxico',
     '2 - Altamente Tóxico',
-    '3 - Moderadamente Tóxico',
+    '3 - Moderamente Tóxico',
     '4 - Pouco Tóxico',
     '5 - Improvável de causar dano agudo',
-    '6 - Não Classificado',
+    '6 - Não Classificado'
   ];
+  String? selectedValue;
+
+  final List<String> items2 = [
+    'Selecione',
+  ];
+  String? selectedValue2;
 
   final List<Map<String, dynamic>> _allProducts = [
     {
@@ -150,20 +155,30 @@ class _ModoDeAcaoPageState extends State<ClassificacaoToxicologicaPage> {
         padding: const EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
-              child: Row(children: <Widget>[
-                Image.asset(
-                  'assets/images/classificacao_toxicologica.png',
-                  fit: BoxFit.contain,
-                  height: 82,
-                ),
-                //Ajustar texto quebrar
-                Text(
-                  'Produtos Formulados por Classificação Toxicológica',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
-                ),
-              ]),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 60,
+                      height: 60,
+                      alignment: Alignment.centerLeft,
+                      child: Image.asset(
+                        'assets/images/classificacao_toxicologica.png',
+                        width: 180.0,
+                      ),
+                    ),
+                    Container(
+                      width: 280,
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'Produtos Formulados por Classificação Toxicológica',
+                        style: TextStyle(fontSize: 22.0),
+                      ),
+                    ),
+                  ]),
             ),
             TextField(
               onChanged: (value) => _runFilter(value),
@@ -184,11 +199,14 @@ class _ModoDeAcaoPageState extends State<ClassificacaoToxicologicaPage> {
               height: 20,
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
+              padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+
+              // ignore: prefer_const_literals_to_create_immutables
               child: Column(children: <Widget>[
                 //Ajustar texto quebrar
                 Text(
                   'Categoria Toxicológica: ',
+                  textAlign: TextAlign.start,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
@@ -197,7 +215,48 @@ class _ModoDeAcaoPageState extends State<ClassificacaoToxicologicaPage> {
               ]),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 20.0, top: 20.0),
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: InputDecorator(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.only(left: 10.0)),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    value: '1 - Extremamente Tóxico',
+                    // ignore: prefer_const_literals_to_create_immutables
+                    items: [
+                      DropdownMenuItem(
+                        child: Text('Extremamente Tóxico'),
+                        value: '1 - Extremamente Tóxico',
+                      ),
+                      DropdownMenuItem(
+                        child: Text('Altamente Tóxico'),
+                        value: '2 - Altamente Tóxico',
+                      ),
+                      DropdownMenuItem(
+                        child: Text('Moderamente Tóxico'),
+                        value: '3 - Moderamente Tóxico',
+                      ),
+                      DropdownMenuItem(
+                        child: Text('Pouco Tóxico'),
+                        value: '4 - Pouco Tóxico',
+                      ),
+                      DropdownMenuItem(
+                        child: Text('Improvável de causar dano agudo'),
+                        value: '5 - Improvável de causar dano agudo',
+                      ),
+                      DropdownMenuItem(
+                        child: Text('Não Classificado'),
+                        value: '6 - Não Classificado',
+                      ),
+                    ],
+                    onChanged: (value) {},
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(bottom: 10.0, top: 10.0),
               child: Column(children: <Widget>[
                 //Ajustar texto quebrar
                 Text(
@@ -210,9 +269,36 @@ class _ModoDeAcaoPageState extends State<ClassificacaoToxicologicaPage> {
               ]),
             ),
             Container(
+              padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: InputDecorator(
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    contentPadding: EdgeInsets.only(left: 10)),
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    isExpanded: true,
+                    borderRadius: BorderRadius.circular(20.0),
+
+                    value: 'Selecione',
+                    // ignore: prefer_const_literals_to_create_immutables
+                    items: [
+                      DropdownMenuItem(
+                        child: Text('Selecione'),
+                        value: 'Selecione',
+                      ),
+                    ],
+                    onChanged: (value) {},
+                  ),
+                ),
+              ),
+            ),
+            Container(
               color: Color.fromARGB(255, 203, 236, 184),
               height: 50.0,
-              padding: EdgeInsets.only(left: 15.0),
+              margin: EdgeInsets.only(top: 20.0),
+              padding: EdgeInsets.only(
+                left: 15.0,
+              ),
               child: Row(children: [
                 Text(
                   'A',

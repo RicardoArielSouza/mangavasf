@@ -1,16 +1,17 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import 'main.dart';
 
-class TelaComparativo extends StatelessWidget {
-  const TelaComparativo({super.key});
+class TelaComparativo extends StatefulWidget {
+  const TelaComparativo({Key? key}) : super(key: key);
 
   @override
+  State<TelaComparativo> createState() => _TelaComparativoState();
+}
+
+class _TelaComparativoState extends State<TelaComparativo> {
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawer(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80.0), //Tamanho da header
         child: AppBar(
@@ -151,14 +152,10 @@ class TelaComparativo extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Paises('BR',
-                          'assets/images/BR.png'),
-                      Paises('UE',
-                          'assets/images/UE.png'),
-                      Paises('RU',
-                          'assets/images/RU.png'),
-                      Paises('EUA',
-                          'assets/images/EUA.png'),
+                      Paises('BR', 'assets/images/BR.png'),
+                      Paises('UE', 'assets/images/UE.png'),
+                      Paises('RU', 'assets/images/RU.png'),
+                      Paises('EUA', 'assets/images/EUA.png'),
                     ],
                   ),
                 ),
@@ -191,14 +188,10 @@ class Substancias extends StatelessWidget {
   final String valorRU;
   final String valorEUA;
 
-  const Substancias(
-      this.nomeSubstancia,
-      this.valorBR,
-      this.valorUE,
-      this.valorRU,
-      this.valorEUA,
-      {Key? key}
-      ) : super(key: key);
+  const Substancias(this.nomeSubstancia, this.valorBR, this.valorUE,
+      this.valorRU, this.valorEUA,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -207,10 +200,7 @@ class Substancias extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            padding: EdgeInsets.all(8.0),
-              child: Text(nomeSubstancia)
-          ),
+          Container(padding: EdgeInsets.all(8.0), child: Text(nomeSubstancia)),
           Text(valorBR),
           Text('| '),
           Text(valorUE),
@@ -223,8 +213,6 @@ class Substancias extends StatelessWidget {
     );
   }
 }
-
-
 
 class Paises extends StatelessWidget {
   final String nomePais;

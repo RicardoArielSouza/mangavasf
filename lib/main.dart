@@ -2,14 +2,12 @@
 
 import 'package:flutter/material.dart';
 
-//Imports do firebase
-import 'package:sqflite/sqflite.dart';
-
 import 'package:mangavasf/ajuda.dart';
 import 'package:mangavasf/contato.dart';
 import 'package:mangavasf/informacoes.dart';
 import 'package:mangavasf/pragas.dart';
 import 'package:mangavasf/produtosFormulados.dart';
+import 'package:mangavasf/telaComparativo.dart';
 import 'classeAgronomica.dart';
 import 'classificacaoAmbiental.dart';
 import 'classificacaoToxicologica.dart';
@@ -25,7 +23,7 @@ Future<void> main() async {
   runApp(
     MaterialApp(
       title: 'Named Routes',
-      initialRoute: '/',
+      initialRoute: '/loading',
       routes: {
         //Quando navegar para "/" rote, construir a Tela Inicial
         '/loading': (context) => LoadingPage(),
@@ -43,6 +41,7 @@ Future<void> main() async {
         '/informacoes': (context) => InformacoesPage(),
         '/contato': (context) => ContatoPage(),
         '/ajuda': (context) => AjudaPage(),
+        '/telaComparativo': (context) => TelaComparativo(),
       },
     ),
   );

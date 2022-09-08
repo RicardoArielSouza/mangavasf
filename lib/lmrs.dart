@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mangavasf/telacomparativo.dart';
+import 'package:mangavasf/telaComparativo.dart';
 
 import 'main.dart';
 
-class LMRSPage extends StatelessWidget {
-  const LMRSPage({super.key});
+class LMRSPage extends StatefulWidget {
+  const LMRSPage({Key? key}) : super(key: key);
 
   @override
+  State<LMRSPage> createState() => _LMRSPageState();
+}
+
+class _LMRSPageState extends State<LMRSPage> {
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawer(),
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(80.0), //Tamanho da header
         child: AppBar(
@@ -100,8 +103,8 @@ class LMRSPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () => Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => TelaComparativo())),
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => TelaComparativo())),
                     child: Container(
                       width: 210,
                       height: 80,
